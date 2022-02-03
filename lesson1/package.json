@@ -1,0 +1,16 @@
+{
+  "name": "lesson1",
+  "version": "1.0.0",
+  "description": "first hometask for Node.js course on GeekBrains",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prime": "echo \"Please, specify the interval (first argument - the beginning, second argument - the end) in which you'd like to see the prime numbers\" && node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anna Korzh <annaakorzh@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
+}
