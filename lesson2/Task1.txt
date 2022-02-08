@@ -1,0 +1,33 @@
+console.log('Record 1');
+
+setTimeout(() => {
+  console.log('Record 2');
+  Promise.resolve().then(() => {
+    setTimeout(() => {
+    сonsole.log('Record 3');
+    Promise.resolve().then(() => {
+      console.log('Record 4');
+      });       
+    });
+  });       
+});
+
+console.log('Record 5');
+
+Promise.resolve().then(() => Promise.resolve().then(() => console.log('Record 6')));
+
+
+Сначала выведется синхронный код: Record 1, Record 5
+Затем то, что в объкте Promise (так как это микрозадача): Record 6
+А далее начнется вывод записей из setTimout: 
+Сначала Record 2 (потому что в своей макрозадаче 
+данный вывод является синхронным)
+Затем Record 3 и следом Record 4
+
+Таким образом, последовательность вывода:
+Record 1 
+Record 5
+Record 6
+Record 2
+Record 3
+Record 4
